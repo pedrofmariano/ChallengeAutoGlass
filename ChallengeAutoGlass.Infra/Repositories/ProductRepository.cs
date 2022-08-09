@@ -100,12 +100,13 @@ namespace ChallengeAutoGlass.Infra.Repositories
                     WHERE (@Query IS NULL OR status = @Query )";
                 var result = await connection.QueryMultipleAsync(sql, new { Query = query});
 
-                var products = result.Read<Product>();
+
+                var products = result.Read<ProductEntitieDb>();
                 var total = result.Read<int>().FirstOrDefault();
 
                 return new PagedResult<Product>()
                 {
-                    List = products,
+                    List = _mapper.Map<IEnumerable<ProductEntitieDb>, IEnumerable<Product>>(products),
                     TotalResults = total,
                     PageIndex = pageIndex,
                     PageSize = pageSize,

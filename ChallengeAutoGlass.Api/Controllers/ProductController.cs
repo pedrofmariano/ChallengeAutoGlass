@@ -20,7 +20,7 @@ namespace ChallengeAutoGlass.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{code}")]
+        [Route("get/{code}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -37,6 +37,7 @@ namespace ChallengeAutoGlass.Api.Controllers
         }
 
         [HttpGet]
+        [Route("get-list")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -53,6 +54,7 @@ namespace ChallengeAutoGlass.Api.Controllers
         }
 
         [HttpPost]
+        [Route("insert-new")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -69,7 +71,7 @@ namespace ChallengeAutoGlass.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{code}")]
+        [Route("inactivate/{code}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -85,7 +87,7 @@ namespace ChallengeAutoGlass.Api.Controllers
         }
 
         [HttpPut]
-        [Route("{code}")]
+        [Route("update/{code}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
